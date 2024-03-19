@@ -29,8 +29,8 @@ app.use(
   cors({
     // origin: "https://virexbd.com",
     origin: "http://localhost:5173",
-    credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    // credentials: true,
+    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
 app.use(express.static(path.join(__dirname, "public")));
