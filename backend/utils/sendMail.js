@@ -1,11 +1,6 @@
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 
-const REFRESH_TOKEN =
-  "1//04VTN7yItJYGnCgYIARAAGAQSNwF-L9IrMz_A0G2pVqBsgDV6TmiRa4x2b95t9bZP7q1vuHcX6u9XZvy3OJCb6TC0ijh7DUfaCOo";
-const CLIENT_ID =
-  "448514247810-dbo8o1q7vbhni038tsjqu1c2lr3q3r3b.apps.googleusercontent.com";
-const CLIENT_SECRET = `${process.env.CLIENT_SECRET}`;
 const REDIRECT_URL = "https://developers.google.com/oauthplayground";
 
 const oAuth2Client = new google.auth.OAuth2(
@@ -24,9 +19,9 @@ const sendMail = async (options) => {
       auth: {
         type: "OAuth2",
         user: "soulpark0@gmail.com",
-        clientId: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
-        refreshToken: REFRESH_TOKEN,
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        refreshToken: process.env.REFRESH_TOKEN,
         accessToken: accessToken,
       },
     });
