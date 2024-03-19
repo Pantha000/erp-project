@@ -26,24 +26,25 @@ app.use(
 // };
 // app.use(allowCrossDomain);
 
-const corsOptions = {
-  origin: `http://localhost:5173`,
-  credentials: true,
-  optionsSuccessStatus: 200,
-  // exposedHeaders: \['Set-Cookie', 'Date', 'ETag'\]
-};
+// const corsOptions = {
+//   origin: `http://localhost:5173`,
+//   credentials: true,
+//   optionsSuccessStatus: 200,
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   // exposedHeaders: \['Set-Cookie', 'Date', 'ETag'\]
+// };
 
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+// app.use(cors(corsOptions));
+// app.options("*", cors(corsOptions));
 
-// app.use(
-//   cors({
-//     // origin: "https://virexbd.com",
-//     origin: "*",
-//     // credentials: true,
-//     // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//   })
-// );
+app.use(
+  cors({
+    // origin: "https://virexbd.com",
+    origin: `https://erp-project-fontend.onrender.com`,
+    credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  })
+);
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/docs", express.static(path.join(__dirname, "docs")));
 
