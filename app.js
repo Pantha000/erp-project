@@ -29,7 +29,7 @@ app.use(
   cors({
     origin: "https://virexbd.com",
     credentials: true,
-    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
 app.use(express.static(path.join(__dirname, "public")));
