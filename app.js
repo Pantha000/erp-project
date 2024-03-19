@@ -15,7 +15,7 @@ app.use(
 );
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://virexbd.com/",
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
