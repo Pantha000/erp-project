@@ -13,6 +13,15 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 app.use(
   fileUpload({ limits: { fieldSize: 50 * 1024 * 1024 }, useTempFiles: true })
 );
+
+// CORS middleware
+const allowCrossDomain = (req, res, next) => {
+  res.header(`Access-Control-Allow-Origin`, `https://virexbd.com`);
+  res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
+  res.header(`Access-Control-Allow-Headers`, `Content-Type`);
+  next();
+};
+app.use(allowCrossDomain);
 app.use(
   cors({
     origin: "https://virexbd.com",
