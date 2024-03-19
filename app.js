@@ -14,23 +14,22 @@ app.use(
   fileUpload({ limits: { fieldSize: 50 * 1024 * 1024 }, useTempFiles: true })
 );
 
-// CORS middleware
-const allowCrossDomain = (req, res, next) => {
-  res.header(`Access-Control-Allow-Origin`, `https://virexbd.com`);
-  res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-  next();
-};
-app.use(allowCrossDomain);
+// // CORS middleware
+// const allowCrossDomain = (req, res, next) => {
+//   res.header(`Access-Control-Allow-Origin`, `https://virexbd.com`);
+//   res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// };
+// app.use(allowCrossDomain);
 app.use(
   cors({
     origin: "https://virexbd.com",
     credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
 app.use(express.static(path.join(__dirname, "public")));
