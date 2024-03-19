@@ -25,14 +25,25 @@ app.use(
 //   next();
 // };
 // app.use(allowCrossDomain);
-app.use(
-  cors({
-    // origin: "https://virexbd.com",
-    origin: "*",
-    // credentials: true,
-    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  })
-);
+
+const corsOptions = {
+  origin: `http://localhost:5173`,
+  credentials: true,
+  optionsSuccessStatus: 200,
+  // exposedHeaders: \['Set-Cookie', 'Date', 'ETag'\]
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
+
+// app.use(
+//   cors({
+//     // origin: "https://virexbd.com",
+//     origin: "*",
+//     // credentials: true,
+//     // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   })
+// );
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/docs", express.static(path.join(__dirname, "docs")));
 
