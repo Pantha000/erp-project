@@ -39,8 +39,8 @@ app.use(
 
 app.use(
   cors({
-    // origin: "https://virexbd.com",
-    origin: `https://erp-project-fontend.onrender.com`,
+    origin: "https://virexbd.com",
+    // origin: `https://erp-project-fontend.onrender.com`,
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
